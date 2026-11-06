@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta
+    name="description"
+    content="大数据领航员是一份可以查阅、逐步学习和动手实践的大数据与数据开发知识库。"
+  >
+  <script>
+    (function () {
+      const releaseId = "55e08288f7858ecb3aaf8d2bd233f08bdac3c3d9e1a609005264fab83cea6cd1";
+      const assetBase = "8a95efdc6bf73434edc800f81d9124e3fc5ca5c5adbe051a4252ad61bf64e5f4";
+      const knowledgeMarker = "/knowledge";
+      const markerIndex = location.pathname.indexOf(knowledgeMarker);
+      const siteRoot = markerIndex >= 0 ? location.pathname.slice(0, markerIndex + 1) : "/";
+      const knowledgePath = siteRoot + "knowledge";
+      const knowledgeBase = knowledgePath + "/";
+      const readerAssetBase = siteRoot + "knowledge-reader/" + assetBase;
+      const currentBase = new URL(knowledgeBase, location.origin).href;
+
+      function escapeAttribute(value) {
+        return value.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+      }
+
+      function currentArticlePath() {
+        const routePrefix = knowledgePath + "/";
+        let route = "";
+
+        if (location.pathname.startsWith(routePrefix)) {
+          route = location.pathname.slice(routePrefix.length);
+        }
+        route = route.replace(/\/+$/, "");
+
+        if (!route || route === "Welcome" || route === "index.html") {
+          return "Welcome.md";
+        }
+
+        try {
+          route = route
+            .split("/")
+            .filter(Boolean)
+            .map((segment) => decodeURIComponent(segment))
+            .join("/");
+        } catch {
+          return "Welcome.md";
+        }
+
+        return /\.md$/i.test(route) ? route : route + ".md";
+      }
+
+      const articlePath = currentArticlePath();
+
+      window.knowledgeLabViewer = {
+        userId: null,
+        releaseId: releaseId,
+        readerBasePath: knowledgePath,
+        assetBasePath: readerAssetBase,
+        websiteHomeUrl: new URL("Welcome", currentBase).href,
+        articlePath: articlePath,
+        displayName: null
+      };
+
+      if (!Element.prototype.detach) {
+        Object.defineProperty(Element.prototype, "detach", {
+          configurable: true,
+          value: function () {
+            if (this.parentNode) this.parentNode.removeChild(this);
+          }
+        });
+      }
+      if (!Event.prototype.detach) {
+        Object.defineProperty(Event.prototype, "detach", {
+          configurable: true,
+          value: function () {}
+        });
+      }
+
+      window.siteInfo = {
+        uid: "55e08288f7858ecb3aaf8d2bd233f08b",
+        host: location.host + knowledgePath,
+        status: "active",
+        slug: null,
+        redirect: 0,
+        customurl: location.host + knowledgePath
+      };
+
+      document.write('<base href="' + escapeAttribute(currentBase) + '">');
+      document.write(
+        '<script defer src="' +
+          escapeAttribute(readerAssetBase + "/app.js") +
+          '"><\/script>'
+      );
+      document.write(
+        '<link rel="stylesheet" href="' +
+          escapeAttribute(readerAssetBase + "/app.css") +
+          '">'
+      );
+      document.write(
+        '<link rel="icon" href="' +
+          escapeAttribute(readerAssetBase + "/favicon-192x192.svg") +
+          '">'
+      );
+    })();
+  </script>
+  <style class="preload">
+    html, body { margin: 0; height: 100%; }
+    body.theme-light {
+      background-color: var(--background-primary, #fff);
+      color: var(--text-normal, #222);
+    }
+    html:has(.knowledge-public-preload) {
+      height: auto;
+      min-height: 100%;
+    }
+    body:has(> .knowledge-public-preload) {
+      height: auto;
+      min-height: 100vh;
+      overflow-y: auto;
+      overflow-x: clip;
+    }
+    .knowledge-public-preload {
+      box-sizing: border-box;
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 56px 24px;
+      font: 16px/1.7 var(--font-text, system-ui, sans-serif);
+    }
+    .knowledge-public-preload h1 {
+      margin: 0;
+      font-size: 1.65rem;
+      line-height: 1.35;
+    }
+  </style>
+  <title>大数据领航员</title>
+  <script>
+    (function () {
+      const uid = window.siteInfo.uid;
+      const readerBase = window.knowledgeLabViewer.readerBasePath;
+      const articlePath = window.knowledgeLabViewer.articlePath || "Welcome.md";
+      const encodedArticlePath = articlePath
+        .split("/")
+        .map((segment) => encodeURIComponent(segment))
+        .join("/");
+
+      function withStaticStatus(responsePromise) {
+        return responsePromise.then(async function (response) {
+          const body = await response.arrayBuffer();
+          const headers = new Headers(response.headers);
+          headers.set("obs-status", "200");
+          return new Response(body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: headers
+          });
+        });
+      }
+
+      const fetchUrl = function (url) {
+        return fetch(url, { credentials: "include" });
+      };
+
+      window.preloadOptions = withStaticStatus(
+        fetchUrl(new URL(readerBase + "/options/" + uid, location.origin).href)
+      );
+      window.preloadCache = withStaticStatus(
+        fetchUrl(new URL(readerBase + "/cache/" + uid, location.origin).href)
+      );
+      window.preloadPage = fetchUrl(
+        new URL(
+          readerBase + "/access/" + uid + "/" + encodedArticlePath,
+          location.origin
+        ).href
+      );
+    })();
+  </script>
+</head>
+<body class="theme-light">
+  <div class="preload knowledge-public-preload">
+    <main><article><h1>大数据领航员</h1></article></main>
+  </div>
+</body>
+</html>

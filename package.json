@@ -1,0 +1,16 @@
+{
+  "name": "big-data-navigator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "大数据领航员：可本地运行并发布到 GitHub Pages 的数据开发知识库。",
+  "scripts": {
+    "start": "node server.js",
+    "sync": "node scripts/sync-source.js",
+    "sync:reader": "node scripts/sync-reader-assets.js",
+    "verify": "node scripts/verify-content.js",
+    "build:pages": "node scripts/build-pages.js",
+    "rebrand": "node scripts/rebrand-content.js",
+    "expand:members": "node scripts/expand-member-articles.js",
+    "refresh:page-cache": "node scripts/refresh-page-cache.js"
+  }
+}
