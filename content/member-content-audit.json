@@ -1,0 +1,276 @@
+{
+  "articles": 1380,
+  "characters": {
+    "total": 27012824,
+    "average": 19575,
+    "p10": 18413,
+    "median": 19651,
+    "p90": 21073
+  },
+  "paragraphs": {
+    "label": "paragraphs",
+    "total": 81149,
+    "unique": 40503,
+    "repeatedGroups": 1371,
+    "repeatedItems": 42017,
+    "repeatedShare": 0.5178,
+    "topRepeated": [
+      {
+        "count": 2289,
+        "sample": "这是一个结合公开方法常见工程故障和脱敏数据构造的复合案例不对应任何单一企业事实"
+      },
+      {
+        "count": 1345,
+        "sample": "这四个案例共享一条底线先证明数据对象和链路能够解释再讨论优化或决策任何涉及资金医疗安全用户隐私监管报送或核心权限的结果都需要保留人工复核阻断条件和回滚路径"
+      },
+      {
+        "count": 1345,
+        "sample": "执行这段sql后不要只看总量应同时保存查询参数口径版本异常对象清单和对应原始记录抽样若结果依赖人工过滤要把过滤条件登记为规则而不是留在个人脚本里"
+      },
+      {
+        "count": 1345,
+        "sample": "示例中的行数时间戳和版本号均为占位值生产实现应从调度参数数据契约和质量平台读取真实信息并将失败结果回写到工单发布系统和责任人而不是只打印在日志中"
+      },
+      {
+        "count": 1345,
+        "sample": "[warning]使用边界文中的组织规模和结果均为脱敏或复合示例用于说明方法正式项目必须使用获授权的数据并由业务数据安全合规和运维负责人确认口径权限上线与回滚方案"
+      }
+    ]
+  },
+  "headings": {
+    "label": "headings",
+    "total": 34538,
+    "unique": 14810,
+    "repeatedGroups": 571,
+    "repeatedItems": 20299,
+    "repeatedShare": 0.5877,
+    "topRepeated": [
+      {
+        "count": 1345,
+        "sample": "### 四个案例共用的验收清单"
+      },
+      {
+        "count": 1345,
+        "sample": "### 如果要把案例继续做深"
+      },
+      {
+        "count": 1345,
+        "sample": "## 附录：公开资料与方法依据"
+      },
+      {
+        "count": 606,
+        "sample": "## 2. 一张图看清角色、流程和数据"
+      },
+      {
+        "count": 606,
+        "sample": "## 3. 指标与口径：不要把相关数字直接当答案"
+      }
+    ]
+  },
+  "codeBlocks": {
+    "label": "codeBlocks",
+    "total": 6194,
+    "unique": 5631,
+    "repeatedGroups": 231,
+    "repeatedItems": 794,
+    "repeatedShare": 0.1282,
+    "topRepeated": [
+      {
+        "count": 324,
+        "sample": "import pandas as pd\n\nKEY = [\"entity_key\", \"event_id\"]\nAMOUNT_COLUMNS = [\"metric_value\", \"a"
+      },
+      {
+        "count": 4,
+        "sample": "-- 漏斗分析：结构贡献诊断（地区 × 用户分层）\nWITH scoped AS (\n  SELECT\n    user_id AS entity_key,\n    event_i"
+      },
+      {
+        "count": 3,
+        "sample": "-- 库存周转率：按业务对象重建链路，避免事件、快照和结果混算\nWITH ranked_inventory_snapshot_id AS (\n  SELECT\n    *,\n   "
+      },
+      {
+        "count": 3,
+        "sample": "-- 库存周转率：源对象、控制对象和结果对象三方对账\nWITH population AS (\n  SELECT\n    inventory_snapshot_id,\n    sn"
+      },
+      {
+        "count": 3,
+        "sample": "from dataclasses import dataclass\n\n@dataclass(frozen=True)\nclass InventorySnapshotIdBatch:"
+      }
+    ]
+  },
+  "structuralCodeBlocks": {
+    "label": "structuralCodeBlocks",
+    "total": 6194,
+    "unique": 562,
+    "repeatedGroups": 199,
+    "repeatedItems": 5831,
+    "repeatedShare": 0.9414,
+    "topRepeated": [
+      {
+        "count": 547,
+        "sample": "import pandas as pd import numpy as np import hashlib TOPIC = STR TOPIC_KEY = STR RULE_ID "
+      },
+      {
+        "count": 525,
+        "sample": "import pandas as pd import numpy as np import hashlib TOPIC = STR TOPIC_KEY = STR RULE_ID "
+      },
+      {
+        "count": 359,
+        "sample": "from dataclasses import dataclass from datetime import datetime @dataclass(frozen=True) cl"
+      },
+      {
+        "count": 348,
+        "sample": "from datetime import date from hashlib import sha256 import pandas as pd SUBJECT = STR BLO"
+      },
+      {
+        "count": 324,
+        "sample": "import pandas as pd KEY = [STR, STR] AMOUNT_COLUMNS = [STR, STR] def reconcile(source: pd."
+      }
+    ]
+  },
+  "contentSignals": {
+    "kinds": {
+      "engineering": 207,
+      "analytics": 201,
+      "ai": 55,
+      "governance": 82,
+      "project": 14,
+      "industry": 626,
+      "learning": 56,
+      "career": 118,
+      "resume": 21
+    },
+    "guides": {
+      "scheduling": 12,
+      "ai-foundation": 13,
+      "ml": 22,
+      "llm": 18,
+      "rag": 9,
+      "agent": 18,
+      "ai-governance": 34,
+      "data-governance": 26,
+      "data-service": 11,
+      "spark-shuffle": 52,
+      "none": 595,
+      "project-delivery": 15,
+      "analytics": 165,
+      "technology-strategy": 13,
+      "data-architecture": 60,
+      "data-team": 9,
+      "security-governance": 19,
+      "data-quality": 18,
+      "career": 128,
+      "data-development": 32,
+      "warehouse": 23,
+      "learning": 43,
+      "sql": 5,
+      "master-standard": 12,
+      "streaming": 6,
+      "lineage": 11,
+      "cdc": 1,
+      "performance": 9,
+      "kafka": 1
+    },
+    "families": {
+      "engineering": 210,
+      "ai": 94,
+      "project": 14,
+      "retail": 141,
+      "analytics": 187,
+      "industry": 200,
+      "finance": 65,
+      "governance": 54,
+      "manufacturing": 71,
+      "healthcare": 149,
+      "learning": 56,
+      "career": 139
+    },
+    "specialties": {
+      "family:engineering": 154,
+      "family:ai": 85,
+      "machine-learning": 11,
+      "family:project": 14,
+      "family:retail": 141,
+      "text-to-sql": 3,
+      "spark": 48,
+      "family:industry": 198,
+      "family:finance": 55,
+      "futures": 8,
+      "cashflow": 1,
+      "family:governance": 32,
+      "family:analytics": 182,
+      "family:manufacturing": 69,
+      "oee": 2,
+      "family:healthcare": 149,
+      "data-quality": 18,
+      "family:learning": 56,
+      "family:career": 132,
+      "salary": 7,
+      "streaming": 4,
+      "lineage": 10,
+      "kafka": 1
+    },
+    "specializedDeepDives": 113,
+    "averageCases": 7.02,
+    "articlesUnderThreeCases": 0,
+    "articlesUnderFiveCases": 0,
+    "caseCountDistribution": {
+      "7": 1359,
+      "8": 21
+    },
+    "averageTables": 6.01,
+    "articlesUnderTwoTables": 0,
+    "averageCodeBlocks": 4.49,
+    "articlesUnderTwoCodeBlocks": 0,
+    "articlesUnderFiveThousandCharacters": 0,
+    "codeLanguages": {
+      "python": 2964,
+      "sql": 3033,
+      "text": 197
+    },
+    "fenceProblems": 0,
+    "fenceProblemSamples": []
+  },
+  "duplicateTitles": {
+    "groups": 52,
+    "articles": 118,
+    "extraFiles": 66
+  },
+  "similarity": {
+    "pairs": 951510,
+    "meanJaccard": 0.0015,
+    "maxJaccard": 1,
+    "maxPair": {
+      "jaccard": 1,
+      "left": {
+        "title": "库存周转率",
+        "path": "【各行业的基础知识】/02-零售电商/99-专业术语词典/05-库存周转率.md"
+      },
+      "right": {
+        "title": "库存周转率",
+        "path": "【各行业的基础知识】/02-零售电商/99-专业术语词典/38-库存周转率.md"
+      }
+    },
+    "pairsOver30Percent": 178,
+    "pairsOver35Percent": 140,
+    "pairsOver50Percent": 30
+  },
+  "distinctTitleSimilarity": {
+    "pairs": 951426,
+    "meanJaccard": 0.0015,
+    "maxJaccard": 0.7407,
+    "maxPair": {
+      "jaccard": 0.7407,
+      "left": {
+        "title": "RDD的宽依赖和窄依赖详解",
+        "path": "【求职就业专题】/03-数据工程师求职全攻略/07-大厂面试题精讲/Spark 面试题详解/08-RDD的宽依赖和窄依赖详解.md"
+      },
+      "right": {
+        "title": "Spark温度二次排序实现",
+        "path": "【求职就业专题】/03-数据工程师求职全攻略/07-大厂面试题精讲/Spark 面试题详解/34-Spark温度二次排序实现.md"
+      }
+    },
+    "pairsOver30Percent": 172,
+    "pairsOver35Percent": 134,
+    "pairsOver50Percent": 24
+  }
+}

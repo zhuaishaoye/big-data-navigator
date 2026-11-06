@@ -10,7 +10,8 @@
     "verify": "node scripts/verify-content.js",
     "build:pages": "node scripts/build-pages.js",
     "rebrand": "node scripts/rebrand-content.js",
-    "expand:members": "node scripts/expand-member-articles.js",
+    "expand:members": "node scripts/expand-member-articles-v2.js",
+    "audit:members": "node scripts/audit-member-content.js",
     "refresh:page-cache": "node scripts/refresh-page-cache.js"
   }
 }
