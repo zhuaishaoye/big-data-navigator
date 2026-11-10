@@ -21,11 +21,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Extract site source
-        run: |
-          mkdir -p site
-          tar -xzf source.tar.gz -C site
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -34,14 +29,22 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Extract content renderers
+        run: tar -xzf member-content-v4-scripts.tar.gz
+
+      - name: Regenerate member guides
+        run: npm run expand:members -- --force
+
+      - name: Verify content
+        run: npm run verify
+
       - name: Build static site
-        working-directory: site
         run: npm run build:pages
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site/dist
+          path: dist
 
   deploy:
     environment:
